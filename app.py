@@ -3,7 +3,7 @@ import requests
 
 app = Flask(__name__)
 
-GOOGLE_API_KEY = "AIzaSyDdlEY52rDfh8fOyN5sqkJCTEYtTvp0VyA"  # 🔑 Replace with your actual key
+GOOGLE_API_KEY = "your key"  # 🔑 Replace with your actual key
 
 @app.route("/")
 def home():
