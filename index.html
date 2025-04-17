@@ -1,19 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>NAI Transit Guide</title>
-    <link rel="stylesheet" href="/static/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Transit Assistant</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <h1>🧭 NAI Transit Chatbot</h1>
-        <div id="chatbox">
-            <input type="text" id="userInput" placeholder="From Delhi to Jaipur" />
-            <button onclick="sendMessage()">Send</button>
-            <p id="response"></p>
-        </div>
-        <div id="map"></div>
+
+  <!-- 🔹 Home Screen -->
+  <section id="home-screen" class="home-screen">
+    <div class="home-content">
+      <h1>🧠 AI Public Transit Guide</h1>
+      <p>Find the best bus and train routes instantly with smart AI assistance.</p>
+      <button onclick="startChat()" class="start-btn">Start Now</button>
     </div>
-    <script src="/static/script.js"></script>
+  </section>
+
+  <!-- 🔹 Chatbot Screen (initially hidden) -->
+  <section id="chatbot-screen" class="chat-container" style="display: none;">
+    <header>
+        <h1>🚌 NAI - Smart Transit Assistant</h1>
+        <p>Ask me the best way to reach your destination!</p>
+      </header>
+      <!-- 🔹 Left Sidebar for History and Saved Routes -->
+<div class="sidebar-left">
+    <div class="recent-searches">
+      <h3>🕘 Recent Questions</h3>
+      <ul id="history-list"></ul>
+    </div>
+    <div class="saved-routes">
+      <h3>⭐ Saved Routes</h3>
+      <ul id="saved-list"></ul>
+    </div>
+  </div>
+  
+
+    <div id="chat-box" class="chat-box"></div>
+<!-- 🔸 Suggested Questions Popup -->
+<div class="suggestions-popup" id="suggestions-popup" style="display: none;">
+    <h3>Suggested Questions</h3>
+    <ul>
+      <li onclick="suggestQuestion('What’s the cheapest route from Delhi to Mumbai?')">🚌 Cheapest route from Delhi to Mumbai</li>
+      <li onclick="suggestQuestion('Which is the cheapest train from Kolkata to Chennai?')">🚆 Cheapest train from Kolkata to Chennai</li>
+      <li onclick="suggestQuestion('Fastest way to reach Pune from Nagpur?')">⚡ Fastest way to reach Pune from Nagpur</li>
+    </ul>
+    <button onclick="toggleSuggestions()">Close</button>
+  </div>
+  
+  <!-- 🟣 Button to toggle suggestions -->
+  <button class="suggestions-btn" onclick="toggleSuggestions()">Need suggestions?</button>
+  
+    <div class="input-area">
+        <input type="text" id="user-input" placeholder="Ask your travel question..." />
+        <button onclick="sendMessage()">Send</button>
+        <button class="reset-btn" onclick="resetChat()">🧹</button>
+        <button class="mic-btn" onclick="startVoiceInput()" title="Speak" id="mic-btn">🎤</button>
+      </div>
+      
+      
+  </section>
+
+  <script src="index2.js"></script>
 </body>
 </html>
